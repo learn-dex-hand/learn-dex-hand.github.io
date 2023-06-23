@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--    <script type="text/x-mathjax-config">-->
+    <!--    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});-->
+    <!--    </script>-->
+    <script type="text/javascript"
+            src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Learning Manipulation with Dexterous Hand</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="nav">
+    <div class="nav-container">
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#">Home</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#intro">Introduction</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#call">Call for Papers</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#challenge">Challenge</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#schedule">Schedule</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#speakers">Speakers</a>-->
+        <!--                <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/index.html#contact">Contact</a>-->
+    </div>
+</div>
+
+<div class="title-container">
+    <div style="text-align: center;">
+        <!--                <div class="subtitle">The second workshop on</div>-->
+        <h1>Learning Manipulation with Dexterous Hand</h1>
+        <div class="subtitle" style="color: #ccc; margin: 20px">
+            Tentative CoRL 2023 Workshop (Hybrid), November 6
+            <!--                    Tentative Workshop at the Conference of Robot Learning - CoRL 2023-->
+        </div>
+        <!--                <div class="subtitle" style="color: rgb(0, 0, 0); margin: 20px">-->
+        <!--                  ===-->
+        <!--                </div>-->
+        <!--                <div class="subtitle" style="color: #ccc; margin: 20px">-->
+        <!--                  <a href="https://youtu.be/1WXNquuj6CI"> Full recording of our workshop.</a>-->
+        <!--                </div>-->
+        <!--                <div class="subtitle" style="color: #ccc; margin: 20px">-->
+        <!--                  <b> <font color="red"> Attend our workshop <a href="https://iclr.cc/virtual/2022/workshop/4564"> here</a> </font> </b>, ICLR registration needed.-->
+        <!--                </div>-->
+    </div>
+</div>
+
+<div class="container">
+    <div class="section" id="intro">
+        <h2>Introduction</h2>
+
+        <p>
+            This workshop seeks to explore learning-based methodologies for dexterous robot manipulation using
+            multi-finger hands. Dexterous manipulation is among the most challenging problems in robotics, and this
+            event aims to provide insights and viewpoints for researchers and attendees on this subject. Moreover, the
+            latest breakthroughs in diverse sensing technologies, especially tactile sensing, will be covered.
+
+            The primary objective of the workshop is to empower participants with the knowledge and expertise needed to
+            create advanced robotic learning algorithms for executing intricate dexterous manipulation tasks, ultimately
+            enhancing human-robot interaction. The workshop targets researchers, engineers, and students with a strong
+            foundation in machine learning, computer vision, or other related domains, who are interested in dexterous
+            manipulation and tactile sensing.
+
+            The presenters and panelists for the workshop will include experts from both academic and industrial
+            backgrounds, representing various fields such as mechanical engineering, control, and robotic learning.
+            Accepted papers may be showcased during a poster session, while a selection of papers will be highlighted in
+            contributed talks.
+
+        </p>
+
+        <!-- <p>
+          Though important, the field is very much under-explored in a systematic way. While the study of generalization has played an essential role in many application domains of machine learning (e.g., image recognition and natural language processing), it did not receive the same amount of attention in common frameworks of policy learning (e.g., reinforcement learning and imitation learning) at the early stage for reasons such as policy optimization is difficult and benchmark datasets are not quite ready yet.
+        </p> -->
+
+        <!-- <p>
+          Learning generalizable policies in the physical world requires deep synergistic efforts across fields of <b>vision, learning, and robotics</b>, and poses many interesting research problems. <b>Recently, this field has started to attract much attention across disciplines</b>, with the maturity of policy optimization algorithms and emergence of training environments with diverse assets.
+          For example, to achieve task-level generalization, meta-RL optimizes fast adaptation in unseen environments; to generalize past experience to new scenarios, offline RL learns an initial policy using previously collected trajectories, and the initial policy may be refined by an online RL process; to improve generalization over visual appearance, domain randomization and data augmentation techniques that were originally developed in computer vision are also applied in visual reinforcement/imitation learning.
+          In addition, in this past year, we are witnessing new physical simulation environments with diverse assets for training and testing generalizabile policy learning algorithms.
+          Given the importance of this topic and the increasing attention attracted by it, we firmly believe that it is good timing to start the discussion of generalizable policy learning in ICLR, which is a pioneering conference which leads the trends of machine learning, especially applied machine learning research.
+        </p> -->
+
+        <!--        <p>-->
+        <!--            Learning generalizable policies in the physical world requires deep synergistic efforts across fields of <b>vision,-->
+        <!--            learning, and robotics</b>, and poses many interesting research problems.-->
+        <!--            This workshop is designed to foster progress in generalizable policy learning, in particular, with <b>a-->
+        <!--            focus on the tasks in the physical world</b>,-->
+        <!--            such as visual navigation, object manipulation, and autonomous driving,-->
+        <!--            because these real-world tasks require complex reasoning involving-->
+        <!--            visual appearance, geometry, and physics. Technically, we expect to-->
+        <!--            stimulate improvement in new directions such as:-->
+        <!--        </p>-->
+        <ul>
+            <li>Data Collection for Dexterous Manipulation</li>
+            <li>Perception for Dexterous Hand</li>
+            <li>Learning Manipulation with Tactile Sensing</li>
+            <li>Modeling Dynamics for Contact Rich Tasks</li>
+            <li>...</li>
+        </ul>
+        <p></p>
+
+
+        <p>
+            We hope to connect researchers from the communities of dexterous robotics, representation learning, computer
+            vision, and to induce collaborations in this exciting new domain, while providing a platform to discuss
+            recent developments, challenges and tradeoffs.
+        </p>
+
+    </div>
+
+
+    <div class="section" id="speakers">
+        <h2>Invited Speakers</h2>
+        <p> listed alphabetically </p>
+        <div class="people">
+            <a href="https://tml.stanford.edu/">
+                <img src="images/speakers/karen_liu.png">
+                <div>Karen Liu</div>
+                <div class="aff">Stanford</div>
+            </a>
+            <a href="http://people.eecs.berkeley.edu/~malik/">
+                <img src="images/speakers/jitendra.jpg">
+                <div>Jitendra Malik</div>
+                <div class="aff">UC Berkeley</div>
+            </a>
+            <a href="https://pangtao.xyz/">
+                <img src="images/speakers/tao.jpg">
+                <div>Tao Pang</div>
+                <div class="aff">Boston Dynamics AI Institute</div>
+            </a>
+            <a href="https://www.cs.cmu.edu/~dpathak/">
+                <img src="images/speakers/Deepak_Pathak.jpg">
+                <div>Deepak Pathak</div>
+                <div class="aff">CMU</div>
+            </a>
+        </div>
+        <div class="people">
+        </div>
+    </div>
+
+    <div class="section" id="call">
+        <h2>Call for Papers</h2>
+        <p>
+            We invite submission to the Learning Manipulation with Dexterous Hand workshop, hosted at CoRL 2023.
+        </p>
+        <h3>Paper topics</h3>
+        <p>
+            A non-exhaustive list of relevant topics:
+        </p>
+        </p>
+
+        <p>In this workshop, we aim to bring together machine learning and robotics researchers who
+            work
+            at the intersection of these fields.
+            We invite researchers to submit work in the following or related areas (non-exhaustive
+            list):</p>
+        <ul>
+            <li><strong>Data for Dexterous Manipulation:</strong></li>
+            <ul>
+                <li>Can human hand data for dexterous manipulation be collected in a general way
+                    using
+                    any
+                    expert-grade equipment? What is the data gap between human and robot hands?
+                </li>
+                <li>How can we improve current data collection methods, such as teleoperation, to
+                    facilitate
+                    large-scale data collection?
+                </li>
+            </ul>
+            <li><strong>Computer Vision:</strong></li>
+            <ul>
+                <li>How can occlusion between objects and robot hands during dexterous manipulation
+                    be
+                    addressed?
+                </li>
+                <li>How can policies generalize to the open world outside the lab environment,
+                    considering
+                    the relatively unpredictable changes in outdoor lighting and the vast amount of
+                    information that needs to be processed?
+                </li>
+            </ul>
+            <li><strong>Tactile Information:</strong></li>
+            <ul>
+                <li>How can tactile information help robots better accomplish tasks and perceive
+                    their
+                    environment?
+                </li>
+                <li>What kind of tactile information is best suited for dexterous robot hands, and
+                    can
+                    it
+                    compensate for the shortcomings of visual perception?
+                </li>
+            </ul>
+            <li><strong>Robot learning</strong></li>
+            <ul>
+                <li>Will we see a unified and generalized model for most daily dexterous
+                    manipulation
+                    tasks
+                    or a specialized model for each individual task?
+                </li>
+                <li>How can learning-based policies handle dynamic tasks that require high-frequency
+                    control
+                    and detailed dynamics models?
+                </li>
+            </ul>
+            <li>Any other related topics we might have forgotten in the list above &#128516;</li>
+        </ul>
+        <p></p>
+        <h3>Submission Guidelines (TBD)</h3>
+        <p>
+        </p>
+        <!--        <ul>-->
+        <!--            <li><b>Submission Portal:</b> <a-->
+        <!--                    href="https://openreview.net/group?id=ICLR.cc/2022/Workshop/GPL">OpenReview</a></li>-->
+        <!--            &lt;!&ndash; <li><b>Format:</b> You must format your submission using the <a href="https://github.com/ICLR/Master-Template/raw/master/archive/iclr2022.zip"> ICLR 2022 LaTeX style file.</a> </li> &ndash;&gt;-->
+        <!--            <li><b>Paper Length:</b>-->
+        <!--                Submissions could be either <b>4-page</b> short papers or <b>8-page</b> long papers, excluding-->
+        <!--                references, acknowledgements, and appendices.-->
+        <!--            </li>-->
+        <!--            <li><b>Format:</b>-->
+        <!--                <ul>-->
+        <!--                    <li>You must format your submission using the <a-->
+        <!--                            href="https://ai-workshops.github.io/assets/gpl_iclr2022.zip"> updated ICLR 2022 LaTeX style-->
+        <!--                        file.</a></li>-->
+        <!--                    <li>Please include the references and supplementary materials in the same PDF as the main paper.-->
+        <!--                    </li>-->
+        <!--                    <li>The maximum file size for submissions is-->
+        <!--                        100MB. Submissions that violate the ICLR style (e.g., by decreasing-->
+        <!--                        margins or font sizes) or page limits may be rejected without further-->
+        <!--                        review.-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </li>-->
+        <!--            <li><b>Dual Submission:</b>-->
+        <!--                <ul>-->
+        <!--                    <li>Papers to be submitted or in preparation for submission to other major venues (including ICML-->
+        <!--                        2022) in the field are allowed.-->
+        <!--                    </li>-->
+        <!--                    <li>We also weclome published works, but they must be explicitly stated at the time of submission.-->
+        <!--                    </li>-->
+        <!--                </ul>-->
+        <!--            </li>-->
+        <!--            <li><b>Non-archival:</b> The workshop is a-->
+        <!--                non-archival venue and will not have official proceedings. Workshop-->
+        <!--                submissions can be subsequently or concurrently submitted to other-->
+        <!--                venues.-->
+        <!--            </li>-->
+        <!--            <li><b>Visibility:</b> Submissions and reviews will not be public. Only accepted papers will be made public.-->
+        <!--            </li>-->
+        <!--            <li>We encourage the participants of the affiliated challenge to submit technical reports which summarizing-->
+        <!--                their solutions.-->
+        <!--            </li>-->
+        <!--            <li><b>Contact:</b> <a href="mailto:iclr2022gpl@gmail.com">iclr2022gpl@gmail.com</a></li>-->
+        <!--        </ul>-->
+        <p></p>
+
+        <h3>Timeline (TBD)</h3>
+        <!--        <table style="width: 100%">-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td>Jan 17, 2022</td>-->
+        <!--                <td>Announcement and call for submissions</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td><s>Feb 25</s><b><font color="red"> Mar 2, 2022</font></b></td>-->
+        <!--                <td>Paper submission <b>deadline</b></td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>Mar 25, 2022</td>-->
+        <!--                <td>Review decisions announced</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td><s>Apr 8</s><b><font color="red"> Apr 15, 2022</font></b></td>-->
+        <!--                <td>Camera ready and poster uploading deadline</td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
+    </div>
+
+
+    <!--    <div class="section" id="schedule">-->
+    <!--        <h2>Workshop Schedule</h2>-->
+    <!--        Please attend our workshop via our <a href="https://iclr.cc/virtual/2022/workshop/4564"> ICLR workshop virtual-->
+    <!--        website</a>.-->
+    <!--        <ul></ul>-->
+    <!--        &lt;!&ndash; <table style="width: 100%">-->
+    <!--          <tr> <th>Start</th> <th>End</th> <th>Event</th> </tr>-->
+    <!--          <tr><td>8:50am</td><td>9:00am</td><td>Opening Remark</td></tr>-->
+    <!--          <tr><td>9:00am</td><td>9:30am</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>9:30am</td><td>10:00am</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>10:00am</td><td>10:40am</td>-->
+    <!--          <td>Spottrght Section: Simulation Environments for Embodied AI</td></tr>-->
+    <!--          <tr><td>10:40am</td><td>11:10am</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>11:10am</td><td>11:40am</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>11:40am</td><td>12:10pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>12:10pm</td><td>1:30pm</td><td>Lunch</td></tr>-->
+    <!--          <tr><td>1:30pm</td><td>2:00pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>2:00pm</td><td>2:30pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>2:30pm</td><td>3:00pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>3:00pm</td><td>3:40pm</td><td>Accepted Paper Spottrght Presentation</td></tr>-->
+    <!--          <tr><td>3:40pm</td><td>4:10pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>4:10pm</td><td>4:40pm</td><td>Keynote speaker</td></tr>-->
+    <!--          <tr><td>4:40pm</td><td>5:10pm</td><td>Panel Discussion and Community Building</td></tr>-->
+    <!--        </table> &ndash;&gt;-->
+    <!--        <style type="text/css">-->
+    <!--            /* .tg  {border-collapse:collapse;border-spacing:0;}-->
+    <!--            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;-->
+    <!--              overflow:hidden;padding:10px 5px;word-break:normal;}-->
+    <!--            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;-->
+    <!--              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} */-->
+    <!--            .tg .tg-u4qn {-->
+    <!--                background-color: #D9D9D9;-->
+    <!--                text-align: left;-->
+    <!--                vertical-align: bottom-->
+    <!--            }-->
+
+    <!--            /* .tg .tg-7zrl{text-align:left;vertical-align:bottom} */-->
+    <!--        </style>-->
+    <!--        <table class="tg">-->
+    <!--            <thead>-->
+    <!--            <tr>-->
+    <!--                <th class="tg-u4qn"><span style="background-color:#D9D9D9">Start Time (PDT)</span></th>-->
+    <!--                <th class="tg-u4qn"><span style="background-color:#D9D9D9">End Time (PDT)</span></th>-->
+    <!--                <th class="tg-u4qn"><span style="background-color:#D9D9D9">Event</span></th>-->
+    <!--            </tr>-->
+    <!--            </thead>-->
+    <!--            <tbody>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">8:00:00 AM</td>-->
+    <!--                <td class="tg-jkyp">8:10:00 AM</td>-->
+    <!--                <td class="tg-za14">Intro and Opening Remark</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">8:10:00 AM</td>-->
+    <!--                <td class="tg-jkyp">8:40:00 AM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Danica Kragic): Learning for contact rich tasks</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">8:40:00 AM</td>-->
+    <!--                <td class="tg-jkyp">9:10:00 AM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Peter Stone): Grounded Simulation Learning for Sim2Real</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">9:10:00 AM</td>-->
+    <!--                <td class="tg-jkyp">9:20:00 AM</td>-->
+    <!--                <td class="tg-za14">Break</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">9:20:00 AM</td>-->
+    <!--                <td class="tg-jkyp">10:15:00 AM</td>-->
+    <!--                <td class="tg-za14"><a href="https://app.gather.town/app/Wfl5hBvVzs7ELFNS/gplpw-poster-room">Poster-->
+    <!--                    Session 1</a></td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">10:15:00 AM</td>-->
+    <!--                <td class="tg-jkyp">11:15:00 AM</td>-->
+    <!--                <td class="tg-0thz"><a-->
+    <!--                        href="https://us06web.zoom.us/j/88369520043?pwd=OFljb3NRZExwS1RseUdjd0VrYmVTdz09">Live Panel-->
+    <!--                    Discussion</a> (password: bluefew)-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">11:15:00 AM</td>-->
+    <!--                <td class="tg-jkyp">11:23:00 AM</td>-->
+    <!--                <td class="tg-za14">Challenge Winner Presentation (Zhutian &amp; Aidan)</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">11:23:00 AM</td>-->
+    <!--                <td class="tg-jkyp">11:31:00 AM</td>-->
+    <!--                <td class="tg-za14">Challenge Winner Presentation (Fattonny)</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">11:31:00 AM</td>-->
+    <!--                <td class="tg-jkyp">1:00:00 PM</td>-->
+    <!--                <td class="tg-za14">Lunch Break</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">1:00:00 PM</td>-->
+    <!--                <td class="tg-jkyp">1:10:00 PM</td>-->
+    <!--                <td class="tg-za14">Contributed Talk (Sim-to-Lab-to-Real: Safe RL with Shielding and Generalization-->
+    <!--                    Guarantees)-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">1:10:00 PM</td>-->
+    <!--                <td class="tg-jkyp">1:40:00 PM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Shuran Song): Iterative Residual Policy for Generalizable Dynamic-->
+    <!--                    Manipulation of Deformable Objects&nbsp;&nbsp;-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">1:40:00 PM</td>-->
+    <!--                <td class="tg-jkyp">2:10:00 PM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Nadia Figueroa): Towards Safe and Efficient Learning and Control for-->
+    <!--                    Physical Human Robot Interaction-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">2:10:00 PM</td>-->
+    <!--                <td class="tg-jkyp">2:18:00 PM</td>-->
+    <!--                <td class="tg-za14">Challenge Winner Presentation (EPIC lab)</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">2:18:00 PM</td>-->
+    <!--                <td class="tg-jkyp">2:30:00 PM</td>-->
+    <!--                <td class="tg-za14">Break</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">2:30:00 PM</td>-->
+    <!--                <td class="tg-jkyp">2:40:00 PM</td>-->
+    <!--                <td class="tg-za14">Contributed Talk (Know Thyself: Transferable Visual Control Policies Through-->
+    <!--                    Robot-Awareness)-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">2:40:00 PM</td>-->
+    <!--                <td class="tg-jkyp">3:10:00 PM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Mrinal Kalakrishnan): Robot Learning &amp; Generalization in the Real-->
+    <!--                    World-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">3:10:00 PM</td>-->
+    <!--                <td class="tg-jkyp">3:40:00 PM</td>-->
+    <!--                <td class="tg-za14">Invited Talk (Xiaolong Wang): Generalizing Dexterous Manipulation by Learning from-->
+    <!--                    Humans-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">3:40:00 PM</td>-->
+    <!--                <td class="tg-jkyp">3:48:00 PM</td>-->
+    <!--                <td class="tg-za14">Challenge Winner Presentation (Silver-Bullet-3D)</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">3:48:00 PM</td>-->
+    <!--                <td class="tg-jkyp">3:50:00 PM</td>-->
+    <!--                <td class="tg-za14">Break</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">3:50:00 PM</td>-->
+    <!--                <td class="tg-jkyp">4:45:00 PM</td>-->
+    <!--                <td class="tg-za14"><a href="https://app.gather.town/app/Wfl5hBvVzs7ELFNS/gplpw-poster-room">Poster-->
+    <!--                    Session 2</a></td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">4:45:00 PM</td>-->
+    <!--                <td class="tg-jkyp">5:30:00 PM</td>-->
+    <!--                <td class="tg-za14">Challenge Award Ceremony</td>-->
+    <!--            </tr>-->
+    <!--            <tr>-->
+    <!--                <td class="tg-jkyp">5:30:00 PM</td>-->
+    <!--                <td class="tg-jkyp">5:35:00 PM</td>-->
+    <!--                <td class="tg-za14">Closing Remarks</td>-->
+    <!--            </tr>-->
+    <!--            </tbody>-->
+    <!--        </table>-->
+    <!--        <ul>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+
+
+    <div class="section" id="organizers">
+        <h2>Organizers</h2>
+        <div class="people">
+            <a href="https://yzqin.github.io/">
+                <img src="images/organizers/qyz_circle.png">
+                <div>Yuzhe Qin</div>
+                <div class="aff">UC San Diego</div>
+            </a>
+            <a href="https://haozhi.io/">
+                <img src="images/organizers/haozhi.jpg">
+                <div>Haozhi Qi</div>
+                <div class="aff">UC Berkeley</div>
+            </a>
+            <a href="https://people.eecs.berkeley.edu/~abajcsy/">
+                <img src="images/organizers/Andrea.jpg">
+                <div>Andrea Bajcsy</div>
+                <div class="aff">UC Berkeley & CMU</div>
+            </a>
+            <a href="https://qiuyuchen14.github.io/">
+                <img src="images/organizers/zoey.jpg">
+                <div>Zoey Chen</div>
+                <div class="aff">University of Washington</div>
+            </a>
+            <a href="https://research.nvidia.com/person/yu-wei-chao">
+                <img src="images/organizers/yuwei.png">
+                <div>Yu-Wei Chao</div>
+                <div class="aff">NVIDIA</div>
+            </a>
+            <a href="http://irobot.dongguk.edu/">
+                <img src="images/organizers/limsc.jpg">
+                <div>Soo-Chul Lim</div>
+                <div class="aff">Dongguk University</div>
+            </a>
+            <a href="https://cseweb.ucsd.edu/~haosu/">
+                <img src="images/organizers/haosu.jpeg">
+                <div>Hao Su</div>
+                <div class="aff">UC San Diego</div>
+            </a>
+            <a href="https://haozhi.io/">
+                <img src="images/organizers/xiaolong_wang.jpg">
+                <div>Xiaolong Wang</div>
+                <div class="aff">UC San Diego</div>
+            </a>
+        </div>
+    </div>
+
+    <!--    <div class="section" id="reviewers">-->
+    <!--        <h2>Program Committee</h2>-->
+    <!--        <p> We would like to thank the following people for their effort in providing feedback for submissions! </p>-->
+    <!--        <ul>-->
+    <!--            <li>Abhishek Gupta</li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
+
+    <div class="section" id="postersessions">
+        <h2>Poster Sessions (TBD)</h2>
+        <!--        <p>Poster session assignments are posted below. The session will be held at <a-->
+        <!--                href="https://app.gather.town/app/Wfl5hBvVzs7ELFNS/gplpw-poster-room">https://app.gather.town/app/Wfl5hBvVzs7ELFNS/gplpw-poster-room</a>.-->
+
+        <!--        </p>-->
+        <!--        <table style="width: 100%">-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th></th>-->
+        <!--                <th>Session A (9:20-10:15 PDT)</th>-->
+        <!--                <th></th>-->
+        <!--                <th>Session B (15:50-16:45 PDT)</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+        <!--            <tbody>-->
+        <!--            <tr>-->
+        <!--                <td>Poster</td>-->
+        <!--                <td>Paper Name</td>-->
+        <!--                <td>Poster</td>-->
+        <!--                <td>Paper Name</td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>A0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=BN3b2VpE1Wc">A Minimalist Ensemble Method for Generalizable-->
+        <!--                    Offline Deep Reinforcement Learning.</a> Kun Wu, Yinuo Zhao, Zhiyuan Xu, Zhen Zhao, Pei Ren,-->
+        <!--                    Zhengping Che, Chi Harold Liu, Feifei Feng, Jian Tang-->
+        <!--                </td>-->
+        <!--                <td>A1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=BtbG3NT4y-c">Continuous Control on Time.</a> Tianwei Ni,-->
+        <!--                    Eric Jang-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>A2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Su-lnV6V1-9">Learning Generalizable Dexterous Manipulation-->
+        <!--                    from Human Grasp Affordance.</a> Yueh-Hua Wu, Jiashun Wang, Xiaolong Wang-->
+        <!--                </td>-->
+        <!--                <td>A3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Su-zh4a41Z5">Don't Change the Algorithm, Change the Data:-->
+        <!--                    Exploratory Data for Offline Reinforcement Learning.</a> Denis Yarats, David Brandfonbrener, Hao-->
+        <!--                    Liu, Michael Laskin, Pieter Abbeel, Alessandro Lazaric, Lerrel Pinto-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>B0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=STfl2VTNy-9">An Empirical Study and Analysis of Learning-->
+        <!--                    Generalizable Manipulation Skill in the SAPIEN Simulator.</a> Liu Kun, Huiyuan Fu, Zheng Zhang,-->
+        <!--                    Huanpu Yin-->
+        <!--                </td>-->
+        <!--                <td>B2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SObVnEp4yb9">Let’s Handle It: Generalizable Manipulation of-->
+        <!--                    Articulated Objects.</a> Zhutian Yang, Aidan Curtis-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>B1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SNhXhN6Nkbq">Revisiting Model-based Value Expansion.</a>-->
+        <!--                    Daniel Palenicek, Michael Lutter, Jan Peters-->
+        <!--                </td>-->
+        <!--                <td>B3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=B42rnNpNyWq">Versatile Offline Imitation Learning via-->
+        <!--                    State-Occupancy Matching.</a> Yecheng Jason Ma, Andrew Shen, Dinesh Jayaraman, Osbert Bastani-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>C1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=S_WepVpVy-9">Control of Two-way Coupled Fluid Systems with-->
+        <!--                    Differentiable Solvers.</a> Brener Ramos, Felix Trost, Nils Thuerey-->
+        <!--                </td>-->
+        <!--                <td>C0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SOb834a4k-9">One-Shot Imitation with Skill Chaining using a-->
+        <!--                    Goal-Conditioned Policy in Long-Horizon Control.</a> Hayato Watahiki, Yoshimasa Tsuruoka-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>I2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Hpzg6ETVJb5">PAnDR: Fast Adaptation to New Environments-->
+        <!--                    from Offline Experiences via Decoupling Policy and Environment Representations.</a> Sang Tong,-->
+        <!--                    Hongyao Tang, Jianye HAO, YAN ZHENG, Zhaopeng Meng, Boyan Li, Zhen Wang-->
+        <!--                </td>-->
+        <!--                <td>C2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rhzlp4pNyZ9">Density Estimation For Conservative-->
+        <!--                    Q-Learning.</a> Paul Daoudi, Ludovic Dos Santos, Merwan Barlier, Aladin Virmaux-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>J0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=razGTV6E1Zc">Know Thyself: Transferable Visual Control-->
+        <!--                    Policies Through Robot-Awareness.</a> Edward S. Hu, Kun Huang, Oleh Rybkin, Dinesh Jayaraman-->
+        <!--                </td>-->
+        <!--                <td>E1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rNhxaETVybc">Silver-Bullet-3D at ManiSkill 2021:-->
+        <!--                    Learning-from-Demonstrations and Heuristic Rule-based Methods for Object Manipulation.</a> Yingwei-->
+        <!--                    Pan, Yehao Li, Yiheng Zhang, Qi Cai, Fuchen Long, Zhaofan Qiu, Ting Yao, Tao Mei-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>C3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Su-G6VpE1W5">Compositional Multi-Object Reinforcement-->
+        <!--                    Learning with Linear Relation Networks.</a> Davide Mambelli, Frederik Träuble, Stefan Bauer,-->
+        <!--                    Bernhard Schölkopf, Francesco Locatello-->
+        <!--                </td>-->
+        <!--                <td>E2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rdZIp4aEkb5">Learning Robust Task Context with Hypothetical-->
+        <!--                    Analogy-Making.</a> Shinyoung Joo, Sang Wan Lee-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>D0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Spf4TE6NkWq">Prompts and Pre-Trained Language Models for-->
+        <!--                    Offline Reinforcement Learning.</a> Denis Tarasov, Vladislav Kurenkov, Sergey Kolesnikov-->
+        <!--                </td>-->
+        <!--                <td>F1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SdWOpNTVJZc">Improving performance on the ManiSkill-->
+        <!--                    Challenge via Super-convergence and Multi-Task Learning.</a> Fabian Dubois, Eric Platon, Tom Sonoda-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>D1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rO-Ep4a4Jb5">A Probabilistic Perspective on Reinforcement-->
+        <!--                    Learning via Supervised Learning.</a> Alexandre Piché, Rafael Pardinas, David Vazquez, Christopher-->
+        <!--                    Pal-->
+        <!--                </td>-->
+        <!--                <td>F2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SNnE64aV1Wc">ShiftNorm: On Data Efficiency in Reinforcement-->
+        <!--                    Learning with Shift Normalization.</a> Sicong Liu, Xi Sheryl Zhang, Yushuo Li, Yifan Zhang, Jian-->
+        <!--                    Cheng-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>D3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=Bt-gaVaVJ-9">Reinforcement Learning for Location-Aware-->
+        <!--                    Warehouse Scheduling.</a> Stelios Andrew Stavroulakis, Biswa Sengupta-->
+        <!--                </td>-->
+        <!--                <td>G0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SKZlRN6V1Zc">Separating the World and Ego Models for-->
+        <!--                    Self-Driving.</a> Vlad Sobal, Alfredo Canziani, Nicolas Carion, Kyunghyun Cho, Yann LeCun-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>E0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=BxZxTN6Ek-9">Zero-Shot Reward Specification via Grounded-->
+        <!--                    Natural Language.</a> Parsa Mahmoudieh, Deepak Pathak, Trevor Darrell-->
+        <!--                </td>-->
+        <!--                <td>G3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SVhMCN6V1W9">Using Deep Learning to Bootstrap Abstractions-->
+        <!--                    for Robot Planning.</a> Naman Shah, Siddharth Srivastava-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>E3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rF-fT4pN1Wc">Deep Sequenced Linear Dynamical Systems for-->
+        <!--                    Manipulation Policy Learning.</a> Mohammad Nomaan Qureshi, Ben Eisner, David Held-->
+        <!--                </td>-->
+        <!--                <td>H1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=StZUCEaV1Zc">Planning to Practice: Efficient Online-->
+        <!--                    Fine-Tuning by Composing Goals in Latent Space.</a> Kuan Fang, Patrick Yin, Ashvin Nair, Sergey-->
+        <!--                    Levine-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>F0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rV2zaEpNybc">Multi-task Reinforcement Learning with Task-->
+        <!--                    Representation Method.</a> Myungsik Cho, Whiyoung Jung, Youngchul Sung-->
+        <!--                </td>-->
+        <!--                <td>H2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rtWOANa41W5">A Study of Off-Policy Learning in Environments-->
+        <!--                    with Procedural Content Generation.</a> Andrew Ehrenberg, Robert Kirk, Minqi Jiang, Edward-->
+        <!--                    Grefenstette, Tim Rocktäschel-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>F3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=S_WcT4TVkZ9">Multi-objective evolution for Generalizable-->
+        <!--                    Policy Gradient Algorithms.</a> Juan Jose Garau-Luis, Yingjie Miao, John D Co-Reyes, Aaron Parisi,-->
+        <!--                    Jie Tan, Esteban Real, Aleksandra Faust-->
+        <!--                </td>-->
+        <!--                <td>H3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SNnLCV6NyW9">Learning-->
+        <!--                    Category-Level Generalizable Object Manipulation Policy via Generative-->
+        <!--                    Adversarial Self-Imitation Learning from Demonstrations.</a> Hao Shen, Weikang Wan, He Wang-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>G1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=SV3x0NTNJ-q">Safer Autonomous Driving in a Stochastic,-->
+        <!--                    Partially-Observable Environment by Hierarchical Contingency Planning.</a> Ugo Lecerf, Christelle-->
+        <!--                    Yemdji-Tchassi, Pietro Michiardi-->
+        <!--                </td>-->
+        <!--                <td>I0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rt-c0N6Vk-9">FlexiBiT: Flexible Inference in Sequential-->
+        <!--                    Decision Problems via Bidirectional Transformers.</a>-->
+        <!--                    Micah Carroll, Jessy Lin, Orr Paradise, Raluca Georgescu, Mingfei Sun,-->
+        <!--                    David Bignell, Stephanie Milani, Katja Hofmann, Matthew Hausknecht, Anca-->
+        <!--                    Dragan, Sam Devlin-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>G2</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=HtbfC4pNJbc">Don't Freeze Your Embedding: Lessons from-->
+        <!--                    Policy Finetuning in Environment Transfer.</a> Victoria Dean, Daniel Kenji Toyama, Doina Precup-->
+        <!--                </td>-->
+        <!--                <td>I1</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=rE3OCN6Vk-c">Imitation Learning for Generalizable-->
+        <!--                    Self-driving Policy with Sim-to-real Transfer.</a> Zoltán Lőrincz, Márton Szemenyei, Robert Moni-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            <tr>-->
+        <!--                <td>H0</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=HE3NA4aNJbq">Learning Transferable Policies By Inferring-->
+        <!--                    Agent Morphology.</a> Brandon Trabucco, Mariano Phielipp, Glen Berseth-->
+        <!--                </td>-->
+        <!--                <td>I3</td>-->
+        <!--                <td><a href="https://openreview.net/forum?id=BtZx3NT41b9">Sim-to-Lab-to-Real: Safe RL with Shielding and-->
+        <!--                    Generalization Guarantees.</a> Kai-Chieh Hsu, Allen Z. Ren, Duy Phuong Nguyen, Anirudha Majumdar,-->
+        <!--                    Jaime Fernández Fisac-->
+        <!--                </td>-->
+        <!--            </tr>-->
+        <!--            </tbody>-->
+        <!--        </table>-->
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contact</h2>
+        <div>For questions and comments, please <a href="mailto:y1qin@ucsd.edu">contact us.</a>
+        </div>
+    </div>
+
+</div>
+<p style="text-align:center;font-size:small;">
+    Website template from <a href="https://ai-workshops.github.io/generalizable-policy-learning-in-the-physical-world/">Tongzhou
+    Mu</a>
+</p>
+
+<div class="foot">
+    © 2023 Learning Manipulation with Dexterous Hand
+</div>
+
+
+</body>
+</html>
